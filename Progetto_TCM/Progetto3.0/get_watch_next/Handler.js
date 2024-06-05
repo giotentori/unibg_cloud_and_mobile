@@ -4,7 +4,7 @@ const connect_to_db = require('./db');
 
 const talk = require('./Talk');
 
-module.exports.get_by_tag = (event, context, callback) => {
+module.exports.get_watch_next = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     console.log('Received event:', JSON.stringify(event, null, 2));
     let body = {}
@@ -12,7 +12,7 @@ module.exports.get_by_tag = (event, context, callback) => {
         body = JSON.parse(event.body)
     }
     // set default
-    if(!body.tag) {
+    if(!body.url) {
         callback(null, {
                     statusCode: 500,
                     headers: { 'Content-Type': 'text/plain' },
@@ -29,7 +29,7 @@ module.exports.get_by_tag = (event, context, callback) => {
     
     connect_to_db().then(() => {
         console.log('=> get_all talks');
-        talk.find({url: body.url})
+        talk.find({url:body.url},{ _id : 0, url : 1, id_next : 1, title_next : 1 }) //stringa aggiunta per togliere l'id e tenere solo id_next e title_next
             .skip((body.doc_per_page * body.page) - body.doc_per_page)
             .limit(body.doc_per_page)
             .then(talks => {
