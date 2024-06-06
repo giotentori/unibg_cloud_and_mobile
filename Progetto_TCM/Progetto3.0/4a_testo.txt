@@ -1,0 +1,47 @@
+
+Consegna 4a.
+
+Panoramica.
+Implementazione ed esposizione di due Lambda Function in Node.JS utilizzando il serivizio di Amazon API Gateway.
+
+
+
+Funzione 1 - Get_Watch_Next_by_Idx
+Descrizione: Dato l'identificativo di un video, restituisce l'elenco di quelli correlati (watch next).
+
+
+
+Funzione 2 - Get_Talks_by_2_Tags_And_Logic
+Descrizione: Lambda Function che ritorna tutti i video TEDx filtrati per due tag qualsiasi, ad esempio science e future, con le relative informazioni più importanti.
+Questa funzione ritorna i video che contengono entrambi i tag e non uno dei due.
+
+[screen della LF esposta come API - una bella IMG l'ho io :) ahaha]
+
+[screen codice LF - io ne metterei una con un minimo di commenti a livello di codice fatti da noi, se vuoi ce l'ho. Fammi sapere]
+
+Esperienza utente: TO DO.
+
+Criticità tecniche: La scelta migliore per implementare il filtraggio dei video per tag è quella di inserire tutte le parole chiave che si vogliono cercare
+in un array di stringhe, così da non costringere l'utente a dover scegliere quali e quante parole utilizzare nella fase di ricerca.
+
+Possibili evoluzioni: Miglioramento del filtraggio per tag con una strategia risolutiva descritta al punto precedente e la stessa ricerca allargarla
+non solamente sulla base dei tag ma, ad esempio, sui relatori presenti nei video.
+
+
+
+Funzione 3 - Get_Talks_by_2_Tags_Or_Logic
+Descrizione: Lambda Function che ritorna tutti i video TEDx filtrati per uno o due tag qualsiasi, ad esempio science o future oppure entrambi, 
+con le relative informazioni più importanti.
+Questa funzione ritorna i video che contengono uno dei due tag oppure entrambi.
+
+[screen della LF esposta come API]
+
+[screen codice LF - io ne metterei una con un minimo di commenti a livello di codice fatti da noi, se vuoi ce l'ho. Fammi sapere]
+
+Esperienza utente: TO DO.
+
+Criticità tecniche: La scelta migliore per implementare il filtraggio dei video per tag è quella di inserire tutte le parole chiave che si vogliono cercare
+in un array di stringhe, così da non costringere l'utente a dover scegliere quali e quante parole utilizzare nella fase di ricerca.
+
+Possibili evoluzioni: Miglioramento del filtraggio per tag con una strategia risolutiva descritta al punto precedente e la stessa ricerca allargarla
+non solamente sulla base dei tag ma, ad esempio, sui relatori presenti nei video.

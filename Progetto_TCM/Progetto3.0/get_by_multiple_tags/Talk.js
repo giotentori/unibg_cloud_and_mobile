@@ -8,7 +8,7 @@ const talk_schema = new mongoose.Schema({
     url: String,
     description: String,
     duration: String,
-    id_next: Array,
+    tags: Array
 }, { collection: 'tedx_data' });
 
 module.exports = mongoose.model('talk', talk_schema);

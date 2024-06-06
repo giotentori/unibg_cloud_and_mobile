@@ -12,11 +12,11 @@ module.exports.get_by_multiple = (event, context, callback) => {
         body = JSON.parse(event.body)
     }
     // set default
-    if(!body.tag) {
+    if((!body.tag) || (!body.tag1)) {
         callback(null, {
                     statusCode: 500,
                     headers: { 'Content-Type': 'text/plain' },
-                    body: 'Could not fetch the talks. Tag is null.'
+                    body: 'Could not fetch the talks. Tag or tag1 is null.'
         })
     }
     
@@ -29,7 +29,7 @@ module.exports.get_by_multiple = (event, context, callback) => {
     
     connect_to_db().then(() => {
         console.log('=> get_all talks');
-        talk.find({$and: [{tags: body.tag},{tags: body.tag1}]})
+        talk.find({$and: [{tags: body.tag},{tags: body.tag1}]},{ _id : 0, id_next : 0, title_next : 0 })
             .skip((body.doc_per_page * body.page) - body.doc_per_page)
             .limit(body.doc_per_page)
             .then(talks => {
